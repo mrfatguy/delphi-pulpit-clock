@@ -1,0 +1,20 @@
+[Settings]
+chbMinimizeToTrayBar=0
+seRestartDelay=3
+chbRunAlways=0
+chbExportLogs=0
+eFolder=F:\Pulpit Clock\
+chbSaveFile=0
+chbSyncMidnight=1
+seSyncDelay=2500
+cbTimeServer=0
+chbSyncStart=1
+chbDeleteOld=1
+chbSaveRecord=1
+chbRandomServer=1
+chbPolishOnly=0
+[Data]
+MaxTicks=104799802
+Left=738
+Top=246
+StartDate=2008-06-14 11:02:06
