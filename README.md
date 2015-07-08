@@ -18,8 +18,6 @@ Keep in mind, that both comments and names (variables, object) are in Polish. I 
 
 For time synchronisation this program uses an `adSNTP` library. It is included in this project, but **it is not translated and remains in Polish**! I'm not an author of this library and have no legal right for making such translation. You can find source code of this library in [this Polish site for Delphi developers](http://4programmers.net/Delphi/Gotowce/Czas_-_synchronizacja__przez_SNTP). But, since it was posted in 2006, there isn't much way of contacting authors right now. However, it seems, that this shouldn't be a big problem. You'll only get log of last time synchronisation (`sync_last.dat` file) in Polish. Rest of program's UI should be translated to English.
 
-**This project ABANDONED! There is no wiki, issues and no support. There will be no future updates. Unfortunately, you're on your own.**
-
 ### More detailed description
 
 This program allows to measure time your computer was turned on. However, due to limits of 32-bit platform (program was written in Delphi 7 for Windows XP) maximum time measured this way equals to _49 days, 17 hours, 2 minutes and 48 seconds_ (2^32 milliseconds). After that all counters will be reset.
@@ -75,3 +73,5 @@ Program's icon is a water drop to underline, that time flows... all the time! Li
 **Version  1.00 (June 3, 2008)**:
 
 - initial release.
+
+**This project ABANDONED! There is no wiki, issues and no support. There will be no future updates. Unfortunately, you're on your own.**
