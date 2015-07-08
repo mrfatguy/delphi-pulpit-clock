@@ -2,7 +2,7 @@ object AboutForm: TAboutForm
   Left = 232
   Top = 106
   BorderStyle = bsDialog
-  Caption = 'O programie...'
+  Caption = 'About...'
   ClientHeight = 225
   ClientWidth = 652
   Color = clWhite
@@ -893,7 +893,7 @@ object AboutForm: TAboutForm
     Top = 126
     Width = 370
     Height = 16
-    Caption = 'Ten program jest rozpowszechniany na licencji freeware.'
+    Caption = 'This program is licensed under MIT License.'
     Font.Charset = EASTEUROPE_CHARSET
     Font.Color = clWindowText
     Font.Height = -13
@@ -923,8 +923,8 @@ object AboutForm: TAboutForm
     Width = 439
     Height = 32
     Caption = 
-      'Program wyœwietlaj¹cy zegar analogowy, czas jaki up³yn¹³ od uruc' +
-      'homienia komputera oraz podstawowe informacje o pamiêci.'
+      'This program displays an analog clock with time, that has passed' +
+      'since running your computer plus basic memory information.'
     Font.Charset = EASTEUROPE_CHARSET
     Font.Color = clWindowText
     Font.Height = -13
@@ -941,10 +941,10 @@ object AboutForm: TAboutForm
     Height = 48
     AutoSize = False
     Caption = 
-      'Program ten wykorzystuje adSNTP - klienta protoko³u SNTP dla Win' +
-      'dows 9x/Me/NT/2000/XP, którego autorami s¹: A. Osiciñska-Dudka o' +
-      'raz A. Dudka. Copyright (c) 2005-2006. Wszelkie prawa zastrze¿on' +
-      'e.'
+      'For time synchronisation, this programs uses adSNTP component fo' +
+      'r Windows 9x/Me/NT/2000/XP. It is Copyright (c) 2005-2006 by A. ' +
+      'Osiciñska-Dudka and A. Dudka. All rights reserved. This componen' +
+      't is NOT translated, so except logs and messages in Polish!'
     Font.Charset = EASTEUROPE_CHARSET
     Font.Color = clRed
     Font.Height = -13
@@ -1541,10 +1541,8 @@ object AboutForm: TAboutForm
     Width = 351
     Height = 13
     Cursor = crHandPoint
-    Hint = 'Kliknij tutaj, aby przejœæ do mojej strony internetowej.'
     Caption = 
-      'Copyright © 2008 by Tomasz Trejderowski. Wszelkie prawa zastrze¿' +
-      'one!'
+      'Copyright © 2008 by Tomasz Trejderowski'
     Font.Charset = EASTEUROPE_CHARSET
     Font.Color = clWindowText
     Font.Height = -11

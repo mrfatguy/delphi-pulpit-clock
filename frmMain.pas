@@ -119,7 +119,7 @@ const
   TicksPerMinute: Cardinal = 1000 * 60;
   TicksPerSecond: Cardinal = 1000;
 
-  asMonths: array [1..12] of String = ('stycznia', 'lutego', 'marca', 'kwietnia', 'maja', 'czerwca', 'lipca', 'sierpnia', 'wrzeœnia', 'paŸdziernika', 'listopada', 'grudnia');
+  asMonths: array [1..12] of String = ('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
 
   OneMinute: Double = 0.000694444444444444;
   OneSecond: Double = 0.0000115740740740741;
@@ -243,10 +243,10 @@ begin
         pnlTimeValue.Caption := CalculateUpTime(GetTickCount());
         ctiMain.Hint := Application.Title + ' [' + pnlTimeValue.Caption + ']';
 
-        InfoForm.pnlTimeLabel.Caption := ' ' + DateTimeToPolishString(StartDate) + ' (' + CalculateUpTime(StartDate) + ' temu)';
+        InfoForm.pnlTimeLabel.Caption := ' ' + DateTimeToPolishString(StartDate) + ' (since ' + CalculateUpTime(StartDate) + ')';
 
         dtInstall := GetSystemInstallationDate();
-        sInstall := DateTimeToPolishString(dtInstall) + ' (' + CalculateUpTime_Long(dtInstall) + ' temu)';
+        sInstall := DateTimeToPolishString(dtInstall) + ' (since ' + CalculateUpTime_Long(dtInstall) + ')';
         InfoForm.pnlSystemInstall.Caption := ' ' + sInstall;
 
         Inc(RecordTick);
@@ -275,7 +275,7 @@ begin
                                 with SyncForm.mInfo.Lines do
                                 begin
                                         Clear();
-                                        Add('*** Brak dostêpu do Internetu! Synchronizacja przerwana! ***');
+                                        Add('*** No access to Internet! Synchronisation terminated! ***');
                                         MidnightSynchronizeAlreadyPerformed := False;
                                 end;
                         end
@@ -320,7 +320,7 @@ begin
                                 with SyncForm.mInfo.Lines do
                                 begin
                                         Clear();
-                                        Add('*** Brak dostêpu do Internetu! Synchronizacja przerwana! ***');
+                                        Add('*** No access to Internet! Synchronisation terminated! ***');
                                         StartupSynchronizeAlreadyPerformed := False;
                                 end;
                         end
@@ -354,7 +354,7 @@ begin
         sSec := IntToStr(Sec); if Sec < 10 then sSec := '0' + sSec;
 
         sDay := IntToStr(Day);
-        if Day = 1 then sDay := sDay + ' dzieñ' else sDay := sDay + ' dni';
+        if Day = 1 then sDay := sDay + ' day' else sDay := sDay + ' days';
 
         Result := sDay + ' ' + sHour + ':' + sMin + ':' + sSec;
 end;
@@ -374,7 +374,7 @@ begin
         sSec := IntToStr(Sec); if Sec < 10 then sSec := '0' + sSec;
 
         sDay := IntToStr(Day);
-        if Day = 1 then sDay := sDay + ' dzieñ' else sDay := sDay + ' dni';
+        if Day = 1 then sDay := sDay + ' day' else sDay := sDay + ' days';
 
         Result := sDay + ' ' + sHour + ':' + sMin + ':' + sSec;
 end;
@@ -395,22 +395,22 @@ begin
         sSec := IntToStr(Sec); if Sec < 10 then sSec := '0' + sSec;
 
         sDay := IntToStr(Day);
-        if Day = 1 then sDay := sDay + ' dzieñ' else sDay := sDay + ' dni';
+        if Day = 1 then sDay := sDay + ' day' else sDay := sDay + ' days';
 
         d := InfoForm.DopelnijPoPolsku(Month);
         case d of
-                1: sMonth := IntToStr(Month) + ' miesi¹c';
-                2: sMonth := IntToStr(Month) + ' miesi¹ce';
-                3: sMonth := IntToStr(Month) + ' miesiêcy';
+                1: sMonth := IntToStr(Month) + ' month';
+                2: sMonth := IntToStr(Month) + ' months';
+                3: sMonth := IntToStr(Month) + ' months'; //Unused in English
         end;
         if Month = 0 then sMonth := '' else sMonth := sMonth + ', ';
 
         Year := Year - 1900;
         d := InfoForm.DopelnijPoPolsku(Year);
         case d of
-                1: sYear := IntToStr(Year) + ' rok';
-                2: sYear := IntToStr(Year) + ' lata';
-                3: sYear := IntToStr(Year) + ' lat';
+                1: sYear := IntToStr(Year) + ' year';
+                2: sYear := IntToStr(Year) + ' years';
+                3: sYear := IntToStr(Year) + ' years'; //Unused in English
         end;
         if Year = 0 then sYear := '' else sYear := sYear + ', ';
 
@@ -695,22 +695,22 @@ begin
         GlobalMemoryStatus(MemStatus);
 
         iPrec := Byte(Round(MemStatus.dwAvailPhys / (MemStatus.dwTotalPhys / 100)));
-        memS := 'Pamiêæ fizyczna: ';
-        memS := memS + FormatFloat('#, "MB"', MemStatus.dwAvailPhys div 1048576) + ' z ';
+        memS := 'Physical memory: ';
+        memS := memS + FormatFloat('#, "MB"', MemStatus.dwAvailPhys div 1048576) + ' of ';
         memS := memS + FormatFloat('#, "MB"', MemStatus.dwTotalPhys div 1048576);
         memS := memS + ' (' + IntToStr(iPrec) + '%) wolne';
         lblPhysMem.Caption := memS;
 
         iPrec := Byte(Round(MemStatus.dwAvailVirtual / (MemStatus.dwTotalVirtual / 100)));
-        memS := 'Pamiêæ wirtualna: ';
-        memS := memS + FormatFloat('#, "MB"', MemStatus.dwAvailVirtual div 1048576) + ' z ';
+        memS := 'Virtual memory: ';
+        memS := memS + FormatFloat('#, "MB"', MemStatus.dwAvailVirtual div 1048576) + ' of ';
         memS := memS + FormatFloat('#, "MB"', MemStatus.dwTotalVirtual div 1048576);
         memS := memS + ' (' + IntToStr(iPrec) + '%) wolne';
         lblVirtualMem.Caption := memS;
 
         iPrec := Byte(Round(MemStatus.dwAvailPageFile / (MemStatus.dwTotalPageFile / 100)));
-        memS := 'Pamiêæ stronnicowania: ';
-        memS := memS + FormatFloat('#, "MB"', MemStatus.dwAvailPageFile div 1048576) + ' z ';
+        memS := 'Pagefile memory: ';
+        memS := memS + FormatFloat('#, "MB"', MemStatus.dwAvailPageFile div 1048576) + ' of ';
         memS := memS + FormatFloat('#, "MB"', MemStatus.dwTotalPageFile div 1048576);
         memS := memS + ' (' + IntToStr(iPrec) + '%) wolne';
         lblPageFileMem.Caption := memS;
@@ -791,13 +791,13 @@ begin
         msMem.dwLength := SizeOf(msMem);
         GlobalMemoryStatus(msMem);
 
-        Ini.Values['Wolna pamiêæ RAM'] := FormatFloat('#, "MB"', msMem.dwAvailPhys div 1048576);
-        Ini.Values['Wolna pamiêæ wirtualna'] := FormatFloat('#, "MB"', msMem.dwAvailVirtual div 1048576);
-        Ini.Values['Wolna pamiêæ stronnicowania'] := FormatFloat('#, "MB"', msMem.dwAvailPageFile div 1048576);
+        Ini.Values['Free physical memory'] := FormatFloat('#, "MB"', msMem.dwAvailPhys div 1048576);
+        Ini.Values['Free virtual memory'] := FormatFloat('#, "MB"', msMem.dwAvailVirtual div 1048576);
+        Ini.Values['Free pagefile memory'] := FormatFloat('#, "MB"', msMem.dwAvailPageFile div 1048576);
 
-        Ini.Values['Start systemu'] := pnlStartedValue.Caption;
-        Ini.Values['Czas dzia³ania systemu'] := pnlTimeValue.Caption;
-        Ini.Values['Rekord'] := pnlRecordValue.Caption;
+        Ini.Values['System start'] := pnlStartedValue.Caption;
+        Ini.Values['System on-line period'] := pnlTimeValue.Caption;
+        Ini.Values['Record'] := pnlRecordValue.Caption;
 
         sTmp := TStringList.Create();
         sLine := TStringList.Create();
@@ -811,16 +811,16 @@ begin
                 begin
                         sLine := Split(sTmp.Strings[sTmp.Count - 1], '|');
 
-                        Ini.Values['Synchronizacja czasu'] := DateTimeToPolishString(StrToDateTime(sLine[0]));
-                        Ini.Values['Serwer czasu'] := sLine[1];
-                        Ini.Values['Korekta lokalnego zegara'] := sLine[2];
+                        Ini.Values['Time synchronisation'] := DateTimeToPolishString(StrToDateTime(sLine[0]));
+                        Ini.Values['Time server'] := sLine[1];
+                        Ini.Values['Local cloc adjust'] := sLine[2];
                 end;
 
                 Ini.Values['Liczba synchronizacji czasu'] := IntToStr(sTmp.Count);
         end;
 
-        Ini.Values['Instalacja systemu operacyjnego'] := Trim(InfoForm.pnlSystemInstall.Caption);
-        Ini.Values['Pierwsze uruchomienie programu'] := Trim(InfoForm.pnlTimeLabel.Caption);
+        Ini.Values['System installation date'] := Trim(InfoForm.pnlSystemInstall.Caption);
+        Ini.Values['First program run'] := Trim(InfoForm.pnlTimeLabel.Caption);
 
         c := 0;
 
@@ -836,12 +836,12 @@ begin
                 end;
         end;
 
-        Ini.Values['Liczba restartów'] := IntToStr(c);
+        Ini.Values['Number of restarts'] := IntToStr(c);
 
         sLine.Free;
         sTmp.Free;
         
-        Ini.SaveToFile(IncludeTrailingBackSlash(Directory) + 'podstawowe_informacje.txt');
+        Ini.SaveToFile(IncludeTrailingBackSlash(Directory) + 'basic_info.txt');
         Ini.Free;
 end;
 
@@ -861,7 +861,7 @@ begin
                 slFile.LoadFromFile(sLogFile);
 
                 slTemp.Add('+' + StringOfChar('-', 21) + '+' + StringOfChar('-', 28) + '+' + StringOfChar('-', 18) + '+');
-                slTemp.Add('|   Data i godzina    |          Zdarzenie         |    Czas pracy    |');
+                slTemp.Add('|      Timestamp      |            Event           |    Work period   |');
                 slTemp.Add('+' + StringOfChar('-', 21) + '+' + StringOfChar('-', 28) + '+' + StringOfChar('-', 18) + '+');
 
                 for a := 0 to slFile.Count -1 do
@@ -871,11 +871,11 @@ begin
                         sLine := '| ' + slLine[0] + ' | ';
 
                         case StrToIntDef(slLine[1], 0) of
-                                0: sOp := 'Nieokreœlony b³¹d!';
-                                1: sOp := 'Uruchomienie komputera';
-                                2: sOp := 'Restart komputera';
-                                3: sOp := 'Zamkniêcie systemu';
-                                4: sOp := 'Rekord d³ugoœci dzia³ania';
+                                0: sOp := 'Undefined error!';
+                                1: sOp := 'Computer startup';
+                                2: sOp := 'Computer restart';
+                                3: sOp := 'System shutdown';
+                                4: sOp := 'On-line record';
                         end;
 
                         sLine := sLine + sOp + StringOfChar(' ', 26 - Length(sOp)) + ' | ';
@@ -891,7 +891,7 @@ begin
                 end;
 
                 slTemp.Add('+' + StringOfChar('-', 21) + '+' + StringOfChar('-', 28) + '+' + StringOfChar('-', 18) + '+');
-                slTemp.SaveToFile(IncludeTrailingBackSlash(Directory) + 'dziennik_zdarzen.txt');
+                slTemp.SaveToFile(IncludeTrailingBackSlash(Directory) + 'events_log.txt');
         end;
 
         slTemp.Clear();
@@ -901,7 +901,7 @@ begin
                 slFile.LoadFromFile(ExtractFilePath(Application.ExeName) + 'sync_log.dat');
 
                 slTemp.Add('+' + StringOfChar('-', 21) + '+' + StringOfChar('-', 46) + '+' + StringOfChar('-', 22) + '+');
-                slTemp.Add('|   Data i godzina    |                 Serwer czasu                 |    Korekta zegara    |');
+                slTemp.Add('|      Timestamp      |                  Time server                 |     Clock adjust     |');
                 slTemp.Add('+' + StringOfChar('-', 21) + '+' + StringOfChar('-', 46) + '+' + StringOfChar('-', 22) + '+');
 
                 for a := 0 to slFile.Count -1 do
@@ -914,7 +914,7 @@ begin
                         sLine := sLine + sOp + StringOfChar(' ', 44 - Length(sOp)) + ' | ';
 
                         sOp := slLine[2];
-                        sOp := StringReplace(sOp, ' sekundy', '', []);
+                        sOp := StringReplace(sOp, ' seconds', '', []);
                         if Copy(sOp, 1, 1) <> '-' then sOp := ' ' + sOp;
                         sLine := sLine + sOp + StringOfChar(' ', 20 - Length(sOp)) + ' |';
 
@@ -922,7 +922,7 @@ begin
                 end;
 
                 slTemp.Add('+' + StringOfChar('-', 21) + '+' + StringOfChar('-', 46) + '+' + StringOfChar('-', 22) + '+');
-                slTemp.SaveToFile(IncludeTrailingBackSlash(Directory) + 'dziennik_synchronizacji_czasu.txt');
+                slTemp.SaveToFile(IncludeTrailingBackSlash(Directory) + 'time_sync_log.txt');
         end;
 
         slLine.Free;
@@ -950,14 +950,14 @@ begin
         begin
                 ctiMain.IconVisible := True;
                 ctiMain.Tag := 1;
-                mnuMinimize.Caption := 'Przywróæ na Pulpit';
+                mnuMinimize.Caption := 'Restore';
                 Application.Minimize;
         end
         else
         begin
                 ctiMain.IconVisible := False;
                 ctiMain.Tag := 0;
-                mnuMinimize.Caption := 'Minimalizuj do obszaru powiadomieñ';
+                mnuMinimize.Caption := 'Minimalize to traybar';
                 Application.Restore;
         end;
 end;

@@ -35,7 +35,7 @@ implementation
 
 procedure TAboutForm.GoToURL(Sender: TObject);
 begin
-        ShellExecute(Handle,'open','http://www.trejderowski.pl/','','',SW_SHOW);
+        ShellExecute(Handle,'open','http://www.gaman.pl/','','',SW_SHOW);
 end;
 
 procedure TAboutForm.CloseWindow(Sender: TObject);

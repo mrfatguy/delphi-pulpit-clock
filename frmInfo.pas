@@ -68,7 +68,7 @@ begin
 
                 if slLog.Count = 0 then
                 begin
-                        pnlEmptyLog.Caption := 'Dziennik zdarzeñ jest pusty';
+                        pnlEmptyLog.Caption := 'Event log is empty';
                         btnDeleteLog.Enabled := False;
                         slLog.Free;
                         Exit;
@@ -78,9 +78,9 @@ begin
 
                 b := DopelnijPoPolsku(slLog.Count);
                 case b of
-                        1: pnlEmptyLog.Caption := 'Dziennik zawiera ' + IntToStr(slLog.Count) + ' zdarzenie';
-                        2: pnlEmptyLog.Caption := 'Dziennik zawiera ' + IntToStr(slLog.Count) + ' zdarzenia';
-                        3: pnlEmptyLog.Caption := 'Dziennik zawiera ' + IntToStr(slLog.Count) + ' zdarzeñ';
+                        1: pnlEmptyLog.Caption := 'Log contains one event';
+                        2: pnlEmptyLog.Caption := 'Log contains ' + IntToStr(slLog.Count) + ' events';
+                        3: pnlEmptyLog.Caption := 'Log contains ' + IntToStr(slLog.Count) + ' events'; //Not used in English!
                 end;
 
                 btnDeleteLog.Enabled := True;
@@ -94,10 +94,10 @@ begin
                         lst.Caption := slLogEntry[0];
 
                         case StrToIntDef(slLogEntry[1], 0) of
-                                1: lst.SubItems.Add('Uruchomienie komputera');
-                                2: lst.SubItems.Add('Restart komputera');
-                                3: lst.SubItems.Add('Zamkniêcie systemu');
-                                4: lst.SubItems.Add('Rekord d³ugoœci dzia³ania');
+                                1: lst.SubItems.Add('Computer startup');
+                                2: lst.SubItems.Add('Computer restart');
+                                3: lst.SubItems.Add('System turned off');
+                                4: lst.SubItems.Add('Longest run period');
                         end;
 
                         iTicks := StrToIntDef(slLogEntry[2], 0);
@@ -135,7 +135,7 @@ procedure TInfoForm.btnDeleteLogClick(Sender: TObject);
 var
         slLog: TStringList;
 begin
-        if Application.MessageBox(PChar('Czy na pewno wyczyœciæ zawartoœæ dziennika zdarzeñ?' + #13 + #10 + 'Ta operacja jest NIEODWRACALNA!'), 'Pytanie...', MB_YESNO + MB_ICONQUESTION + MB_DEFBUTTON2 + MB_APPLMODAL) = ID_NO then exit;
+        if Application.MessageBox(PChar('Are you sure you want to pure log out of all events?' + #13 + #10 + 'This operation CANNOT be undone!'), 'Confirm...', MB_YESNO + MB_ICONQUESTION + MB_DEFBUTTON2 + MB_APPLMODAL) = ID_NO then exit;
 
         slLog := TStringList.Create();
         slLog.Clear;

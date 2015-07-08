@@ -89,7 +89,7 @@ begin
                         MainForm.SaveFile := True;
                         Close();
                 end
-                else MessageBox(Application.Handle, PChar('Wskazany folder (' + eFolder.Text + ') jest nieprawid³owy!'), 'B³¹d!', $30);
+                else MessageBox(Application.Handle, PChar('Selected folder (' + eFolder.Text + ') in invalid!'), 'Error!', $30);
         end
         else
         begin
@@ -116,7 +116,7 @@ end;
 
 procedure TSettingsForm.btnClearRecordClick(Sender: TObject);
 begin
-        if Application.MessageBox(PChar('Czy na pewno wyzerowaæ rekord?' + #13 + #10 + 'Ta operacja jest nieodwracalna!'), 'Pytanie...', $124) = ID_NO then exit;
+        if Application.MessageBox(PChar('Are you sure you want to reset your record?' + #13 + #10 + 'This operation CANNOT be undone!'), 'Confirm...', $124) = ID_NO then exit;
 
         MainForm.MaxTicks := 0;
         MainForm.WriteSettings();
@@ -252,9 +252,9 @@ end;
 procedure TSettingsForm.seRestartDelayChange(Sender: TObject);
 begin
         case InfoForm.DopelnijPoPolsku(seRestartDelay.Value) of
-                1: lblMinuteDop.Caption := 'minuta';
-                2: lblMinuteDop.Caption := 'minuty';
-                3: lblMinuteDop.Caption := 'minut';
+                1: lblMinuteDop.Caption := 'minute';
+                2: lblMinuteDop.Caption := 'minutes';
+                3: lblMinuteDop.Caption := 'minutes'; //Unused in English
         end;
 end;
 
@@ -269,7 +269,7 @@ procedure TSettingsForm.btnSyncNowClick(Sender: TObject);
 begin
         if not SyncForm.Connected then
         begin
-                MessageBox(Application.Handle, PChar('Brak po³¹czenia z Internetem!'), 'B³¹d!', $30);
+                MessageBox(Application.Handle, PChar('No connection to Internet!'), 'Error!', $30);
                 Exit;
         end;
 
@@ -292,7 +292,7 @@ begin
         if MainForm.IsDirectoryValid(fdMain.Directory) then
                 eFolder.Text := IncludeTrailingBackSlash(fdMain.Directory)
         else
-                MessageBox(Application.Handle, PChar('Wskazany folder  jest nieprawid³owy!'), 'B³¹d!', $30);
+                MessageBox(Application.Handle, PChar('Selected folder is invalid!'), 'Error!', $30);
 end;
 
 procedure TSettingsForm.chbRandomServerClick(Sender: TObject);

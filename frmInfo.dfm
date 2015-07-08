@@ -3,7 +3,7 @@ object InfoForm: TInfoForm
   Top = 103
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsDialog
-  Caption = 'Dziennik zdarzeñ i informacje...'
+  Caption = 'Events log'
   ClientHeight = 513
   ClientWidth = 708
   Color = clBtnFace
@@ -27,7 +27,7 @@ object InfoForm: TInfoForm
     TabOrder = 0
     OnChange = pcMainChange
     object tsLog: TTabSheet
-      Caption = 'Dziennik'
+      Caption = 'Log'
       object fList: TListView
         Left = 2
         Top = 2
@@ -36,15 +36,15 @@ object InfoForm: TInfoForm
         Anchors = [akLeft, akTop, akRight, akBottom]
         Columns = <
           item
-            Caption = 'Data i godzina'
+            Caption = 'Timestamp'
             Width = 140
           end
           item
-            Caption = 'Zdarzenie'
+            Caption = 'Event'
             Width = 170
           end
           item
-            Caption = 'Czas pracy'
+            Caption = 'Work period'
             Width = 120
           end
           item
@@ -79,7 +79,7 @@ object InfoForm: TInfoForm
       end
     end
     object tsInfo: TTabSheet
-      Caption = 'Informacje'
+      Caption = 'Information'
       ImageIndex = 1
       object mInfo: TMemo
         Left = 2
@@ -100,7 +100,7 @@ object InfoForm: TInfoForm
       end
     end
     object tsHistory: TTabSheet
-      Caption = 'Historia zmian'
+      Caption = 'History of changes'
       ImageIndex = 2
       object mHistory: TMemo
         Left = 2
@@ -127,7 +127,7 @@ object InfoForm: TInfoForm
     Width = 75
     Height = 25
     Cancel = True
-    Caption = 'Zamknij'
+    Caption = 'Close'
     Default = True
     TabOrder = 1
     OnClick = btnCloseClick
@@ -137,7 +137,7 @@ object InfoForm: TInfoForm
     Top = 480
     Width = 75
     Height = 25
-    Caption = 'Wyczyœæ'
+    Caption = 'Clear'
     TabOrder = 2
     OnClick = btnDeleteLogClick
   end
@@ -161,7 +161,7 @@ object InfoForm: TInfoForm
     Width = 166
     Height = 18
     Alignment = taRightJustify
-    Caption = 'Pierwsze uruchomienie programu '
+    Caption = 'First program run '
     Font.Charset = EASTEUROPE_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
@@ -189,7 +189,7 @@ object InfoForm: TInfoForm
     Width = 166
     Height = 18
     Alignment = taRightJustify
-    Caption = 'Instalacja systemu operacyjnego '
+    Caption = 'System instalation date '
     Font.Charset = EASTEUROPE_CHARSET
     Font.Color = clWindowText
     Font.Height = -11

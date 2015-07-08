@@ -84,7 +84,7 @@ object MainForm: TMainForm
       Top = 256
       Width = 73
       Height = 17
-      Caption = 'Start systemu'
+      Caption = 'System start'
       TabOrder = 2
       OnMouseMove = PerformMouseMove
     end
@@ -107,7 +107,7 @@ object MainForm: TMainForm
       Top = 280
       Width = 265
       Height = 17
-      Caption = 'Czas dzia³ania systemu'
+      Caption = 'System on-line period'
       Font.Charset = EASTEUROPE_CHARSET
       Font.Color = clWindowText
       Font.Height = -11
@@ -122,7 +122,7 @@ object MainForm: TMainForm
       Top = 297
       Width = 265
       Height = 57
-      Caption = '0 dni 00:00:00'
+      Caption = '0 days 00:00:00'
       Font.Charset = EASTEUROPE_CHARSET
       Font.Color = clWindowText
       Font.Height = -35
@@ -137,7 +137,7 @@ object MainForm: TMainForm
       Top = 360
       Width = 73
       Height = 17
-      Caption = 'Rekord'
+      Caption = 'Record'
       TabOrder = 6
       OnMouseMove = PerformMouseMove
     end
@@ -281,7 +281,7 @@ object MainForm: TMainForm
         572E3EEEEEEEE8FF5E2E3EEEEEEEE1888E2E3EEEEEEEEEEEEE2E3EEEEEEEEEEA
         AE2ECEEEEEEEEEAAAE2ECEEEEEEEAAAAAE6ECEEEEEEEEEEEEE6ECCCCCCCCCCCC
         CC6EC44444444444446E2CCCCC333333332EEEEEEEEEEEEEEEEE}
-      Caption = 'Minimalizuj do obszaru powiadomieñ'
+      Caption = 'Minimize to traybar'
       Default = True
       ShortCut = 16496
       OnClick = mnuMinimizeClick
@@ -296,7 +296,7 @@ object MainForm: TMainForm
         31E77227344C444635E77721764F9443857777FF3749943ADD77777F87499478
         D7777777FA7993BD77777777FF766722777777777F677127777777777FF73227
         7777777777F11F777777777777FFFF7777777777777777777777}
-      Caption = 'Dziennik zdarzeñ i informacje'
+      Caption = 'Events log'
       ShortCut = 16497
       OnClick = mnuLogClick
     end
@@ -344,7 +344,7 @@ object MainForm: TMainForm
         13111E081E0101141E1F1F1F1E02091B1C0A031E0C04161E1F1F1F1F1F1E1E0E
         0F0F0101161E1E1F1F1F1F1F1F1F1F1E0E0E18021E1F1F1F1F1F1F1F1F1F1F1F
         1E1E1E1E1F1F1F1F1F1F1F1F1F1F1F1F1F1F1F1F1F1F1F1F1F1F}
-      Caption = 'Konfiguracja programu'
+      Caption = 'Settings and configuration'
       ShortCut = 16498
       OnClick = mnuConfigClick
     end
@@ -392,7 +392,7 @@ object MainForm: TMainForm
         170C081E1308121D1E1F1E1D180415171E1E1E17080812111E1F1F1E19180404
         040415150C120F1E1F1F1F1F1E19180B0B050E0E0E0F1E1F1F1F1F1F1F1E1002
         02020D0D101E1F1F1F1F1F1F1F1F1E1E1E1E1E1E1E1F1F1F1F1F}
-      Caption = 'O programie...'
+      Caption = 'About...'
       OnClick = mnuAboutClick
     end
     object N1: TMenuItem
@@ -408,7 +408,7 @@ object MainForm: TMainForm
         600AA63166333333C70AA65543333333B20AA61DDAAAAAA36C0AA4E5DAAAAAA3
         6C0AA411D3333332527AA4BFC5DDDDD2177AA441855B55DE477AAA4418ECC192
         33AAAAA4459F9E433AAAAAAA44466666AAAAAAAAAAAAAAAAAAAA}
-      Caption = 'Zakoñcz program'
+      Caption = 'End program'
       ShortCut = 16499
       OnClick = mnuExitClick
     end

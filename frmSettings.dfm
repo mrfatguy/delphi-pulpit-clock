@@ -3,7 +3,7 @@ object SettingsForm: TSettingsForm
   Top = 102
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsDialog
-  Caption = 'Konfiguracja programu'
+  Caption = 'Settings and configuration'
   ClientHeight = 393
   ClientWidth = 632
   Color = clBtnFace
@@ -26,21 +26,21 @@ object SettingsForm: TSettingsForm
     ActivePage = tsSettings
     TabOrder = 0
     object tsSettings: TTabSheet
-      Caption = 'Ustawienia'
+      Caption = 'Settngs'
       ImageIndex = 3
       object gbRecord: TGroupBox
         Left = 4
         Top = 4
         Width = 297
         Height = 165
-        Caption = ' Rekord '
+        Caption = ' Record '
         TabOrder = 0
         object lblActualRecord: TLabel
           Left = 8
           Top = 56
           Width = 80
           Height = 13
-          Caption = 'Aktualny rekord:'
+          Caption = 'Current record:'
         end
         object Label1: TLabel
           Left = 8
@@ -49,10 +49,10 @@ object SettingsForm: TSettingsForm
           Height = 44
           AutoSize = False
           Caption = 
-            'Rekord jest aktualizowany i zapisywany co 11 sekund. Po wyzero- ' +
-            'waniu zostanie on wiêc szybko uaktualniony przez program.  Fun- ' +
-            'kcja powoduje wiêc jedynie skasowanie aktualnego rekordu d³ugo- ' +
-            'œci dzia³ania, a nie zatrzymanie naliczania go w ogóle.'
+            'Record is updated and saved each 11 seconds. After resetting it ' +
+            'to zero, it will soon be updated by program. This function only ' +
+            'deletes current record, but does not stop counting time and sav ' +
+            'ing new records after reset.'
           Font.Charset = EASTEUROPE_CHARSET
           Font.Color = clGray
           Font.Height = -9
@@ -67,7 +67,7 @@ object SettingsForm: TSettingsForm
           Top = 16
           Width = 281
           Height = 17
-          Caption = 'Zapisuj rekordy czasu dzia³ania komputera w dzienniku'
+          Caption = 'Write on-line records in program log'
           Checked = True
           State = cbChecked
           TabOrder = 0
@@ -86,7 +86,7 @@ object SettingsForm: TSettingsForm
           Top = 80
           Width = 75
           Height = 25
-          Caption = 'Wyzeruj!'
+          Caption = 'Reset!'
           Font.Charset = EASTEUROPE_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
@@ -102,7 +102,7 @@ object SettingsForm: TSettingsForm
           Top = 32
           Width = 270
           Height = 17
-          Caption = 'Zapisuj¹c nowy rekord, usuwaj wpisy o poprzednich'
+          Caption = 'Purge old records, when saving new one'
           Checked = True
           State = cbChecked
           TabOrder = 1
@@ -113,7 +113,7 @@ object SettingsForm: TSettingsForm
         Top = 4
         Width = 297
         Height = 165
-        Caption = ' Synchronizacja czasu '
+        Caption = ' Time synchronisation '
         TabOrder = 1
         object lblTimeServer: TLabel
           Left = 8
@@ -129,9 +129,9 @@ object SettingsForm: TSettingsForm
           Height = 22
           AutoSize = False
           Caption = 
-            'Uwaga! Synchronizacja czasu dotyczy ca³ego systemu, a nie tylko ' +
-            'tego programu. Nale¿y u¿ywaæ jej z rozwag¹! Patrz te¿ pole ni¿ej' +
-            '.'
+            'Warning! Time synchronisation updates system clock and therefore' +
+            'is system-wide. It does not occurs only in this program! See bel' +
+            'ow notice as well.'
           Font.Charset = EASTEUROPE_CHARSET
           Font.Color = clGray
           Font.Height = -9
@@ -146,7 +146,7 @@ object SettingsForm: TSettingsForm
           Top = 16
           Width = 249
           Height = 17
-          Caption = 'Synchronizuj czas przy uruchomieniu komputera'
+          Caption = 'Sync time with each Windows start'
           TabOrder = 0
           OnClick = chbSyncStartClick
         end
@@ -280,7 +280,7 @@ object SettingsForm: TSettingsForm
           Top = 104
           Width = 107
           Height = 25
-          Caption = 'Synchronizuj!'
+          Caption = 'Sync now!'
           Font.Charset = EASTEUROPE_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
@@ -295,7 +295,7 @@ object SettingsForm: TSettingsForm
           Top = 104
           Width = 107
           Height = 25
-          Caption = 'Poka¿ dziennik'
+          Caption = 'Show log'
           TabOrder = 6
           OnClick = btnShowSyncLogClick
         end
@@ -305,7 +305,7 @@ object SettingsForm: TSettingsForm
           Top = 32
           Width = 268
           Height = 17
-          Caption = 'Synchronizuj czas o pó³nocy ka¿dego kolejnego dnia'
+          Caption = 'Sync time at midnight each day'
           TabOrder = 1
           OnClick = chbSyncStartClick
         end
@@ -315,7 +315,7 @@ object SettingsForm: TSettingsForm
           Top = 76
           Width = 180
           Height = 17
-          Caption = 'U¿ywaj zawsze losowego serwera'
+          Caption = 'Always use random time server'
           TabOrder = 3
           OnClick = chbRandomServerClick
         end
@@ -325,7 +325,7 @@ object SettingsForm: TSettingsForm
           Top = 76
           Width = 77
           Height = 17
-          Caption = 'Tylko polskie'
+          Caption = 'Only Polish'
           TabOrder = 4
         end
       end
@@ -334,7 +334,7 @@ object SettingsForm: TSettingsForm
         Top = 176
         Width = 297
         Height = 137
-        Caption = ' Zapisywanie do pliku '
+        Caption = ' Saving to file '
         TabOrder = 2
         object Label4: TLabel
           Left = 8
@@ -343,10 +343,10 @@ object SettingsForm: TSettingsForm
           Height = 44
           AutoSize = False
           Caption = 
-            'Je¿eli folder nie istnieje - zostanie utworzony. Plik zawieraj¹c' +
-            'y pod- stwowe parametry jest aktualizowany co 11 sekund. Dzienni' +
-            'ki (zda- rzeñ i synchronizacji czasu) s¹ eksportowane o ka¿dej p' +
-            'e³nej godzi- nie (czyli dwadzieœcia cztery razy na dobê).'
+            'If folder does not exist -- it will be created. File with basic ' +
+            'parameters is updated each 11 seconds. Logs (events log and time' +
+            'synchronisation log) are exported each full houwr (that is -- tw' +
+            'nty four times per each day).'
           Font.Charset = EASTEUROPE_CHARSET
           Font.Color = clGray
           Font.Height = -9
@@ -361,7 +361,7 @@ object SettingsForm: TSettingsForm
           Top = 16
           Width = 238
           Height = 17
-          Caption = 'Zapisuj podstawowe parametry pracy do pliku'
+          Caption = 'Save basic program parameters to file'
           TabOrder = 0
           OnClick = chbSaveFileClick
         end
@@ -389,7 +389,7 @@ object SettingsForm: TSettingsForm
           Top = 64
           Width = 265
           Height = 17
-          Caption = 'Eksportuj równie¿ dzienniki zdarzeñ i synchronizacji'
+          Caption = 'Export events log and time sync log as well'
           TabOrder = 3
           OnClick = chbSaveFileClick
         end
@@ -399,7 +399,7 @@ object SettingsForm: TSettingsForm
         Top = 176
         Width = 297
         Height = 137
-        Caption = ' Pozosta³e parametry '
+        Caption = ' Other parameters '
         TabOrder = 3
         object Label2: TLabel
           Left = 8
@@ -408,9 +408,10 @@ object SettingsForm: TSettingsForm
           Height = 33
           AutoSize = False
           Caption = 
-            'Je¿eli uruchomienie komputera nast¹pi w czasie krótszym lub rów-' +
-            ' nym, jak ustalony powy¿ej, od jego wy³¹czenia, to zdarzenie tak' +
-            'ie zostanie zapisane jako "restart", a nie jako "uruchomienie".'
+            'Program is unable to detect actual system reset. It guesses it, ' +
+            'by checking period of time passed between shutdown and startup. ' +
+            'If it is shorter or equal to above, it will log a "reset". If lo' +
+            'ger -- then it will log a "startup"'
           Font.Charset = EASTEUROPE_CHARSET
           Font.Color = clGray
           Font.Height = -9
@@ -424,14 +425,14 @@ object SettingsForm: TSettingsForm
           Top = 52
           Width = 205
           Height = 13
-          Caption = 'Sztuczne "opóŸnienie" restartu komputera:'
+          Caption = 'Fixed "dealy" for computer restart'
         end
         object lblMinuteDop: TLabel
           Left = 256
           Top = 52
           Width = 32
           Height = 13
-          Caption = 'minuta'
+          Caption = 'minute'
         end
         object Label7: TLabel
           Left = 8
@@ -440,9 +441,8 @@ object SettingsForm: TSettingsForm
           Height = 22
           AutoSize = False
           Caption = 
-            'O tyle minut jest równie¿ opóŸniana synchronizacja czasu przy ur' +
-            'u- chomieniu komputera, jeœli funkcja ta jest w³¹czona (patrz wy' +
-            '¿ej).'
+            'By the same amount of time, time synchronisation during system s' +
+            'tartup is delayed, if this function is enabled (see above).'
           Font.Charset = EASTEUROPE_CHARSET
           Font.Color = clGray
           Font.Height = -9
@@ -457,7 +457,7 @@ object SettingsForm: TSettingsForm
           Top = 16
           Width = 269
           Height = 13
-          Caption = 'Uruchamiaj Pulpit Clock przy ka¿dym starcie systemu'
+          Caption = 'Start Pulpit Clock with each system start'
           TabOrder = 0
         end
         object seRestartDelay: TSpinEdit
@@ -480,7 +480,7 @@ object SettingsForm: TSettingsForm
           Top = 32
           Width = 273
           Height = 13
-          Caption = 'Uruchamiaj zminimalizowany do obszaru powiadomieñ'
+          Caption = 'Run minimised to traybar'
           TabOrder = 1
         end
       end
@@ -491,7 +491,7 @@ object SettingsForm: TSettingsForm
     Top = 361
     Width = 75
     Height = 25
-    Caption = 'Zapisz'
+    Caption = 'Save'
     Default = True
     Font.Charset = EASTEUROPE_CHARSET
     Font.Color = clWindowText
@@ -508,15 +508,15 @@ object SettingsForm: TSettingsForm
     Width = 75
     Height = 25
     Cancel = True
-    Caption = 'Anuluj'
+    Caption = 'Cancel'
     TabOrder = 2
     OnClick = btnCancelClick
   end
   object fdMain: TFolderDialog
     Top = 8
     Left = 8
-    Title = 'Wska¿ folder'
-    Text = 'Wska¿ folder, w którym maj¹ byæ zapisywane pliki programu'
+    Title = 'Select a folder'
+    Text = 'Select a folder, where you want to store all program files'
     Options = [bfFileSysDirsOnly, bfStatusText, bfShowPathInStatusArea, bfSyncCustomButton, bfAlignCustomButton, bfScreenCenter]
     RootFolder = sfoMyComputer
   end
