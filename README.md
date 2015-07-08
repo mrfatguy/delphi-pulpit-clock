@@ -2,7 +2,7 @@
 
 This is a tool in Delphi (with sources), that displays an analog clock on your Windows pulpit, records time your computer was turned on and allows you to synchronise your computer time more efficiently than core Windows tools allows.
 
-For Delphi developer this piece of source code may be useful to learn how to display Flash animation in Delphi program or how to implement support for SNTP protocol for syncing time, from any time server, with a great level of precision. Note, that for this purpose an `adSNTP` library is used, which is included in this project, but **it is not translated and remains in Polish** (because I'm not its author and have no legal right for making such translation). Rest of this program should be in English (excluding comments -- see below). Alternatively, this project can be an example of using system API `GetTickCount()` method to measure time independently from system clock and thus to make it not sensible to any clock or calendar modifications made by end user.
+For Delphi developer this piece of source code may be useful to learn how to display Flash animation in Delphi program or how to implement support for SNTP protocol for syncing time, from any time server, with a great level of precision. Note, that for this purpose an `adSNTP` library is used, which is included in this project (see notice below!). Rest of this program should be in English (excluding comments -- see below). Alternatively, this project can be an example of using system API `GetTickCount()` method to measure time independently from system clock and thus to make it not sensible to any clock or calendar modifications made by end user.
 
 **This project ABANDONED! There is no wiki, issues and no support. There will be no future updates. Unfortunately, you're on your own.**
 
@@ -15,6 +15,8 @@ Last time `.dpr` file saved in Delphi: **22 June 2008**. Last time `.exe` file b
 I don't have access to either most of my components used in this or any other of my Delphi projects, nor to Delphi itself. Even translation of this project to English was done by text-editing all `.dfm` and `.pas` files and therefore it may be cracked. It was made in hope to be useful to anyone and for the same reason I'm releasing its source code, but you're using this project or source code at your own responsibility.
 
 Keep in mind, that both comments and names (variables, object) are in Polish. I didn't find enough time and determination to translated them as well. I only translated strings.
+
+For time synchronisation this program uses an `adSNTP` library. It is included in this project, but **it is not translated and remains in Polish**! I'm not an author of this library and have no legal right for making such translation. You can find source code of this library in [this Polish site for Delphi developers](http://4programmers.net/Delphi/Gotowce/Czas_-_synchronizacja__przez_SNTP). But, since it was posted in 2006, there isn't much way of contacting authors right now. However, it seems, that this shouldn't be a big problem. You'll only get log of last time synchronisation (`sync_last.dat` file) in Polish. Rest of program's UI should be translated to English.
 
 **This project ABANDONED! There is no wiki, issues and no support. There will be no future updates. Unfortunately, you're on your own.**
 
